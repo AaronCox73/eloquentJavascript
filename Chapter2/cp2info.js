@@ -100,5 +100,11 @@ while (b < 10) {
     b = b + 1
 } console.log(a)
 
+// do loop is similar to a while loop but it runs at least once, no matter what
+let yourName
+do {
+    prompt("What is your name?")
+} while (!yourName)
+console.log(yourName)
 
-
+// this program will force you to enter a name
