@@ -20,6 +20,7 @@
     `Back tickles`
 // double, single quotes, or backticks
 'He said "verpiss dich" and it made me cry'
+"He said 'verpiss dich' and it made me cry"
 //Strings can be concatenated or ADDED together
 'concat' + 'enated'
     //backticked strings tend to be template literals and add ${} 

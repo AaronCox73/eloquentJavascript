@@ -15,9 +15,9 @@ mood = 'dark'
 console.log(mood)
 //=> dark
 // another example
-let alpineXCDebt = 100
-alpineXCDebt - 30
-console.log(alpineXCDebt)
+let jeffDebt = 100
+jeffDebt - 30
+console.log(jeffDebt)
 // => 70
 
 // a single let statement can define multiple bindings but must be seperated with a comma
@@ -106,5 +106,52 @@ do {
     prompt("What is your name?")
 } while (!yourName)
 console.log(yourName)
-
 // this program will force you to enter a name
+
+//FOR LOOPS
+for (let i = 0; i < 10; i++) { //must contain two semicolons
+    console.log(i)
+} // in most czses a for loop is shorter and clearer than a while loop
+
+// Breaking out of a loop 
+//waiting for a loop to go "false" is not the only way to exit a loop, you can also use the work "break"
+for (let current = 0; ; current++) {
+    if (current % 7 == 0) {
+        console.log(current)
+        break
+    }
+}
+// since there is no part to check if the loop will end, this loop would run indefinitely without 'BREAK'
+// "break" does the opposite of the word "continue" which would force the loop to continue running
+
+//Updating bindings succinctly
+counter = counter + 1
+//JS shortcut
+counter += 1;
+// similar shortcuts 
+// *= 
+// -= 
+// ++ for +=
+// -- for -=
+
+// Dispatching on a value with switch
+switch (prompt('What dirt bike should I ride today?')) {
+    case "going to the track":
+        console.log("450sx")
+        break;
+    case "going to ride hard enduro":
+        console.log("300xcw")
+        break;
+    case "Need to work on technical skill":
+        console.log("125txt")
+        break;
+    default:
+        console.log("youre too broke to ride");
+        break
+}
+
+//COMMENTS 
+
+// - single line 
+/* MULTIPLE
+LINES */
