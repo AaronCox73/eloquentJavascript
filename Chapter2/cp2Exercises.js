@@ -1,3 +1,7 @@
+// Admittedly, I had to look at the solution for the first problem. 
+//I think I was just not in a good coding mindset but I was able to do exercies 2 & 3 without looking at the solution
+// update, my solution for problem 3 was not accurate, though it did technically work it is flawed
+
 //Prompt 
 
 //write a loop that makes seven calls to console.log to ouput the following triangle
@@ -11,9 +15,13 @@
 #######
 */
 
-for (let i = '#'; i.length < 8; i++) {
+for (var line = "#"; line.length < 8; line += "#")
+    console.log(line);
+
+for (let i = "#"; i.length < 8; i += "#") {
     console.log(i)
-};
+}
+
 
 //FIZZBUZZ
 for (let i = 1; i <= 100; i++) {
@@ -47,21 +55,21 @@ while (num <= size) {
         console.log(chbrd2)
     } else { console.log(chbrd) }
     num++
-} // I DID IT! 
+} // I DID IT! Turns out not really as my code only will do 4 checkers while theirs will change with "size" input
 
 // Their solution 
-var size = 8;
 
-var board = "";
+let size = 8
+let board = ""
 
-for (var y = 0; y < size; y++) {
-    for (var x = 0; x < size; x++) {
+for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
         if ((x + y) % 2 == 0)
-            board += " ";
+            board += " "
         else
-            board += "#";
+            board += "#"
     }
-    board += "\n";
+    board += "\n"
 }
+console.log(board)
 
-console.log(board);
