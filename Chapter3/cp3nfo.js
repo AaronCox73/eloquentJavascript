@@ -52,4 +52,33 @@ console.log(halve(100));
 console.log(n)
 //=>10
 // when the code inside the halve function refers to n, it is seeing its own n, not the global n
-//nested scope
+
+
+//Nested Scope
+//blocks and functions can be created within other blocks and functions, producing multiple degrees of locality
+const hummus = function (factor) {
+    const ingreident = function (amount, unit, name) {
+        let ingreidentAmount = amount * factor;
+        if (amount > 1) {
+            unit += "s"
+        }
+        console.log(`${ingreidentAmount}, ${unit}, ${name}`)
+    }
+    ingreident(1, "can", "chickpeas")
+    ingreident(1, "can", "chickpeas")
+    ingreident(1, "can", "chickpeas")
+    ingreident(1, "can", "chickpeas")
+}
+// this is lexical scoping "functions are executed using the scope chain that was in effect when they were defined"
+
+// Functions as values
+//a function value can do all the things other values can do.
+//pass as an arguement, store in a new binding, etc
+let missileLaunch = function () {
+    missileFire.launch("now")
+};
+if (safeMode) {
+    missileLaunch = function () {/*does nothing*/ }
+};
+// in the example above missileLaunch is being stored as a new binding in sage mode or in fire mode
+
