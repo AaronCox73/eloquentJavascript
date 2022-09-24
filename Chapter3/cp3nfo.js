@@ -82,3 +82,102 @@ if (safeMode) {
 };
 // in the example above missileLaunch is being stored as a new binding in sage mode or in fire mode
 
+//Declaration Notation 
+// shorter way to create a function binding
+// function keyword is at the start of a statement
+function sqaure(x) {
+    return x * x
+};
+// function declaration is not part of regular top-to-bottom flow of control 
+console.log('beer is really good:', beer())
+
+function beer() {
+    return "PAUSE... NOT"
+}
+// the function will still be called above on line 92 even though the function is declared below it.
+
+// Arrow Functions
+// a third notation for functions. Instead of the function keyword it uses an arrow => 
+const power = (base, exponent) => {
+    let result = 1;
+    for (let count = 1; count < exponent; count++) {
+        result *= base
+    }
+    return result;
+}
+// the arrow comes after the list of parameters followed by the function's body
+// when there is only one parameter you can eliminate the parenthesis 
+const sqaure1 = (x) => { return x * x };
+const sqaure2 = x => x * x;
+//when there are no parameters at all the arrow function just has empty parenthesis 
+const horn = () => {
+    console.log("MEEP")
+}
+
+// the call stack 
+function greet(who) {
+    console.log("hello" + who)
+}
+greet("Lauren")
+console.log("goodbye")
+
+// the call stack would look like this 
+/*
+- not in funciton
+-- in greet
+---- in console.log
+-- in greet
+- not in function
+---- in console.log
+- not in function
+*/
+/* the call to greet causes control to jump to the start of that function (line 119) the function calls console.log
+which takes control, does its job, and then returns control to line 2. there it reaches the end of the greet function, so it returns to
+the place that called it which is line 121. the line after that calls console.log again
+after that returns the program reaches its end*/
+
+// the palce where the computer stores this context is called the "call stack"
+
+// the code below asks the computer a hard question that would cause an inifinte back and forth (if the computer had endless space)
+function chicken() {
+    return egg
+}
+function egg() {
+    return chicken
+}
+
+console.log(chicken() + ' came first');
+
+// optional arguements 
+function sqaure(x) { return x * x }
+sqaure(4, "hedgehog", true)
+// this will return 16, why? 
+// javascript will ignore the string and the boolean and only run the number
+// the upside to this behavior can be used to allow a function to be called with different numbers of arguements 
+function minus(a, b) {
+    if (b === undefined) return -a
+    else (a - b)
+}
+console.log(minus(10))
+// => -10
+console.log(minus(10, 5))
+// => 5
+
+
+// if you write an = operator after a parameter, followed by an expression the value of that expression will replace the argument when it is not given
+
+function power(base, exponent = 2) {
+    let result = 1;
+    for (let count = 1; count < exponent; count++) {
+        result *= base
+    }
+    return result
+}
+// if no second parameter is entered the function will default to 2
+console.log(power(3))
+// 3 to the 2nd power = 9
+console.log(power(2, 4))
+// 2 to the 4th power 16
+
+
+

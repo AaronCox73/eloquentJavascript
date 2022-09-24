@@ -52,7 +52,7 @@ prompt('ENTER PASSWORD'); // executing a function is called invoking, calling, o
 // CONTROL FLOW
 // executed from top to bottom
 let theNumber = Number(prompt('PICK A NUMBER'));
-console.log('you number is the sqaure root of' + theNumber * theNumber);
+console.log('your number is the sqaure root of' + theNumber * theNumber);
 // number converts the value to a number as prompt is always returned as a string 
 
 //CONDITIONAL EXECUTION 
