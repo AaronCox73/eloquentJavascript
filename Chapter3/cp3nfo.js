@@ -181,3 +181,108 @@ console.log(power(2, 4))
 
 
 
+// CLOSURES
+// Closure is a function having access to the parent scope, even after the parent function has closed
+
+// from the book 
+function wrapValue(n) {
+    let value = n;
+    return () => value
+}
+
+let wrap1 = wrapValue(1)
+let wrap2 = wrapValue(2)
+console.log(wrap1());
+// 1
+console.log(wrap2());
+// 2
+// the feature of being able to reference a specific instance of a local binding in an enclosed scope is a CLOSURE
+
+function multiplier(factor) {
+    return number => number * factor
+}
+
+let twice = multiplier(2)
+console.log(twice(5))
+// = 10
+
+// recursion
+// when a function calls itself
+function power(base, exponent) {
+    if (exponent == 0) {
+        return 0
+    } else {
+        return base * power(base, exponent - 1)
+    }
+}
+console.log(power(2, 3))
+// 8
+// this version is about 3 times slower than the looping version
+
+function findSolution(target) {
+    function find(current, history) {
+        if (current == target) {
+            return history
+        } else if (current > target) {
+            return null
+        } else {
+            return find(current + 5, `(${history} + 5)`) || find(current * 3, `(${history} *3)`)
+        }
+    }
+    find(1, "1")
+}
+
+console.log(findSolution(24))
+// (((1 * 3) + 5 ) * 3)
+
+
+
+// growing functions  PAGE 52-54
+// need functionalility in code that can be used for mulitple things and will be easy to add new parameters in future 
+
+
+function print(cows, chickens) {
+    let cowString = String(cows)
+    while (cowString.length < 3) {
+        cowString = '0' + cowString
+    }
+    console.log(`${cowString} cows`)
+
+    let chickenString = String(chickens)
+    while (chickenString.length < 3) {
+        chickenString = '0' + chickenString
+    }
+    console.log(`${chickenString} chickens`)
+}
+print(7, 11)
+
+
+function zero(number, label) {
+    let numberString = String(number)
+    while (numberString.length < 0) {
+        numberString = 0 + numberString
+    }
+    console.log(`${numberString} + ${label}`)
+}
+function print(cows, chickens, pigs) {
+    zero(cows, "Cows");
+    zero(chickens, "=Chickens");
+    zero(pigs, "Pigs");
+}
+
+print(7, 11, 3)
+
+function zeroPad(number, width) {
+    let string = String(number)
+    while (string.length < 3) {
+        string = '0' + string
+    }
+    return string
+}
+
+function print(cows, chickens, pigs) {
+    console.log(`${zeroPad}(cows, 3)Cows`)
+    console.log(`${zeroPad}(chickens, 3)chickens`)
+    console.log(`${zeroPad}(pigs, 3)Pigs`)
+}
+print(7, 11, 3)
